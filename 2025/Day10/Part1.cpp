@@ -7,10 +7,11 @@ void solve(const vector<bool> &target, vector<bool> state, const vector<vector<i
 int main()
 {
     string line;
-    int n = line.size(), rez = 0;
+    int  rez = 0;
 
     while (getline(cin, line))
     {
+        int n = line.size();
         vector<bool> target;
         vector<vector<int>> buttons;
 
