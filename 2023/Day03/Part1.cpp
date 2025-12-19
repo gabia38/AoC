@@ -13,7 +13,7 @@ int main()
     }
 
     int l = schematic[0].size();
-    vector<int> parts;
+    int rez = 0;
     for (int i = 0; i < schematic.size(); i++)
     {
         for (int j = 0; j < l; j++)
@@ -32,7 +32,7 @@ int main()
                         aux++;
                     }
 
-                    parts.push_back(nr);
+                    rez += nr;
                 }
 
                 if (i < schematic.size() - 1 && j < l - 1 && isdigit(schematic[i + 1][j + 1]))
@@ -53,7 +53,7 @@ int main()
                         aux++;
                     }
 
-                    parts.push_back(nr);
+                    rez += nr;
                 }
 
                 if (i < schematic.size() - 1 && isdigit(schematic[i + 1][j]))
@@ -74,7 +74,7 @@ int main()
                         aux++;
                     }
 
-                    parts.push_back(nr);
+                    rez += nr;
                 }
 
                 if (i < schematic.size() - 1 && j > 0 && isdigit(schematic[i + 1][j - 1]))
@@ -95,7 +95,7 @@ int main()
                         aux++;
                     }
 
-                    parts.push_back(nr);
+                    rez += nr;
                 }
 
                 if (j > 0 && isdigit(schematic[i][j - 1]))
@@ -116,7 +116,7 @@ int main()
                         aux++;
                     }
 
-                    parts.push_back(nr);
+                    rez += nr;
                 }
 
                 if (i > 0 && j > 0 && isdigit(schematic[i - 1][j - 1]))
@@ -137,7 +137,7 @@ int main()
                         aux++;
                     }
 
-                    parts.push_back(nr);
+                    rez += nr;
                 }
 
                 if (i > 0 && isdigit(schematic[i - 1][j]))
@@ -158,7 +158,7 @@ int main()
                         aux++;
                     }
 
-                    parts.push_back(nr);
+                    rez += nr;
                 }
 
                 if (i > 0 && j < l - 1 && isdigit(schematic[i - 1][j + 1]))
@@ -179,16 +179,10 @@ int main()
                         aux++;
                     }
 
-                    parts.push_back(nr);
+                    rez += nr;
                 }
             }
         }
-    }
-
-    int rez = 0;
-    for (auto it : parts)
-    {
-        rez += it;
     }
 
     cout << rez;
