@@ -11,7 +11,7 @@ int main()
 
         void computePower()
         {
-            map<char, int> freq;
+            unordered_map<char, int> freq;
 
             for (const char &c : combo)
             {
@@ -85,8 +85,7 @@ int main()
         hands.insert(hand);
     }
 
-    int i = 1;
-    long long rez = 0;
+    int i = 1, rez = 0;
     for (auto it : hands)
     {
         rez += it.bid * i;
