@@ -34,50 +34,17 @@ int main()
     int l = map[0].size();
     queue<Pipe> pipes;
 
-    if (0 < pozi && (map[pozi - 1][pozj] == '|' || map[pozi - 1][pozj] == '7' || map[pozi - 1][pozj] == 'F'))
-    {
-        Pipe pipe;
+    Pipe pipe;
 
-        pipe.shape = map[pozi - 1][pozj];
-        pipe.pozi = pozi - 1;
-        pipe.pozj = pozj;
-        pipe.distance = 1;
+    pipe.shape = map[pozi][pozj];
+    pipe.pozi = pozi;
+    pipe.pozj = pozj;
+    pipe.distance = 0;
 
-        pipes.push(pipe);
-    }
-    if (pozj < l - 1 && (map[pozi][pozj + 1] == '-' || map[pozi][pozj + 1] == 'J' || map[pozi][pozj + 1] == '7'))
-    {
-        Pipe pipe;
-
-        pipe.shape = map[pozi][pozj + 1];
-        pipe.pozi = pozi;
-        pipe.pozj = pozj + 1;
-        pipe.distance = 1;
-
-        pipes.push(pipe);
-    }
-    if (pozi < map.size() - 1 && (map[pozi + 1][pozj] == '|' || map[pozi + 1][pozj] == 'L' || map[pozi + 1][pozj] == 'J'))
-    {
-        Pipe pipe;
-
-        pipe.shape = map[pozi + 1][pozj];
-        pipe.pozi = pozi + 1;
-        pipe.pozj = pozj;
-        pipe.distance = 1;
-
-        pipes.push(pipe);
-    }
-    if (0 < pozj && (map[pozi][pozj - 1] == '-' || map[pozi][pozj - 1] == 'F' || map[pozi][pozj - 1] == 'L'))
-    {
-        Pipe pipe;
-
-        pipe.shape = map[pozi][pozj - 1];
-        pipe.pozi = pozi;
-        pipe.pozj = pozj - 1;
-        pipe.distance = 1;
-
-        pipes.push(pipe);
-    }
+    addNorth(map, pipes, pipe);
+    addEast(map, pipes, pipe, l);
+    addSouth(map, pipes, pipe);
+    addWest(map, pipes, pipe);
 
     map[pozi][pozj] = '.';
 
